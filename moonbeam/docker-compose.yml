@@ -14,7 +14,7 @@ services:
     image: subsquid/hydra-indexer:4
     restart: unless-stopped
     environment:
-      - WORKERS_NUMBER=1
+      - WORKERS_NUMBER=5
       - DB_NAME=indexer
       - DB_HOST=db
       - DB_USER=postgres
@@ -22,7 +22,7 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - BLOCK_HEIGHT=0 # starting block height
-      - WS_PROVIDER_ENDPOINT_URI=wss://wss.testnet.moonbeam.network
+      - WS_PROVIDER_ENDPOINT_URI=wss://moonbase.moonbeam.elara.patract.io
       - TYPES_JSON=types.json
       - BUNDLE_TYPES=typesBundle.json
     
