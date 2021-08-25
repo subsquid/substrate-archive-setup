@@ -14,18 +14,24 @@ services:
     image: subsquid/hydra-indexer:4
     restart: unless-stopped
     environment:
-      - INDEXER_WORKERS=5
+      - WORKERS_NUMBER=1
       - DB_NAME=indexer
       - DB_HOST=db
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
-      - BLOCK_HEIGHT=0 # starting block height
+      - FORCE_HEIGHT=true
+      - BUNDLE_TYPES=typesBundle.json
+      - TYPES_JSON=types.json
+      - BLOCK_HEIGHT=8844711 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://kusama-rpc.polkadot.io/
     depends_on:
       - db
       - redis
+    volumes:
+      - "./types.json:/hydra/packages/hydra-indexer/types.json"
+      - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
     command: >
       sh -c "yarn db:bootstrap && yarn start:prod"
 
