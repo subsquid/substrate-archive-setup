@@ -22,7 +22,8 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - BLOCK_HEIGHT=0 # starting block height
-      - WS_PROVIDER_ENDPOINT_URI=wss://moonbase.moonbeam.elara.patract.io
+      - FORCE_HEIGHT=true
+      - WS_PROVIDER_ENDPOINT_URI=wss://moonriver.api.onfinality.io/public-ws
       - TYPES_JSON=types.json
       - BUNDLE_TYPES=typesBundle.json
     
