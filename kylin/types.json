@@ -1,0 +1,14 @@
+{
+  "Address": "MultiAddress",
+  "LookupSource": "MultiAddress",
+  "DataRequest": {
+    "para_id": "Option<ParaId>",
+    "requested_block_number": "BlockNumber",
+    "processed_block_number": "Option<BlockNumber>",
+    "requested_timestamp": "u128",
+    "processed_timestamp": "Option<u128>",
+    "payload": "Text",
+    "feed_name": "Text",
+    "url": "Text"
+  }
+}
