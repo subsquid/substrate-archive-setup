@@ -20,6 +20,7 @@ services:
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_PORT=5432
+      - FINALITY_THRESHOLD=0
       - REDIS_URI=redis://redis:6379/0
       - BLOCK_HEIGHT=0 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://subsquid.kylin-node.co.uk
