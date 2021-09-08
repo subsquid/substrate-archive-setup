@@ -3,6 +3,7 @@
   "LookupSource": "MultiAddress",
   "DataRequest": {
     "para_id": "Option<ParaId>",
+    "account_id": "Option<AccountId>",
     "requested_block_number": "BlockNumber",
     "processed_block_number": "Option<BlockNumber>",
     "requested_timestamp": "u128",
