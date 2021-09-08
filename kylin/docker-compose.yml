@@ -22,7 +22,7 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - BLOCK_HEIGHT=0 # starting block height
-      - WS_PROVIDER_ENDPOINT_URI=wss://subsquid.kylin-node.co.uk
+      - WS_PROVIDER_ENDPOINT_URI=wss://chachacha.kylin-node.co.uk
       - TYPES_JSON=types.json
       #- BUNDLE_TYPES=typesBundle.json
     
