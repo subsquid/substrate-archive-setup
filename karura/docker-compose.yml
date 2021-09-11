@@ -11,16 +11,17 @@ services:
       POSTGRES_PASSWORD: postgres
 
   indexer:
-    image: subsquid/hydra-indexer:4
+    image: subsquid/hydra-indexer:4.2.0-alpha.1
     restart: unless-stopped
     environment:
-      - INDEXER_WORKERS=5
+      - WORKERS_NUMBER=1
       - DB_NAME=indexer
       - DB_HOST=db
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
+      - FORCE_HEIGHT=true
       - BLOCK_HEIGHT=0 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://karura-rpc-3.aca-api.network/ws
       - TYPES_JSON=types.json
