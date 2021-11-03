@@ -22,13 +22,13 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - FORCE_HEIGHT=true
-      - BLOCK_HEIGHT=0 # starting block height
+      - BLOCK_HEIGHT=747666 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://karura-rpc-3.aca-api.network/ws
-      - TYPES_JSON=types.json
+      #- TYPES_JSON=types.json
       - BUNDLE_TYPES=typesBundle.json
     
     volumes:
-      - "./types.json:/hydra/packages/hydra-indexer/types.json"
+      #- "./types.json:/hydra/packages/hydra-indexer/types.json"
       - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
 
     depends_on:

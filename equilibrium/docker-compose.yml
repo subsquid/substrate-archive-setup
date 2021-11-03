@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   indexer:
-    image: subsquid/hydra-indexer:4
+    image: subsquid/hydra-indexer:4.1.0-alpha.3
     restart: unless-stopped
     environment:
       - WORKERS_NUMBER=1
@@ -21,7 +21,7 @@ services:
       - DB_PASS=postgres
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
-      - BLOCK_HEIGHT=115561 # starting block height
+      - BLOCK_HEIGHT=1840186 # starting block height
       - FORCE_HEIGHT=true
       - WS_PROVIDER_ENDPOINT_URI=wss://node.equilibrium.io
       - TYPES_JSON=types.json
