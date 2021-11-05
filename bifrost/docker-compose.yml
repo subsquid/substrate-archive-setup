@@ -23,11 +23,9 @@ services:
       - REDIS_URI=redis://redis:6379/0
       - BLOCK_HEIGHT=0 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://bifrost-rpc.liebi.com/ws
-      - TYPES_JSON=types.json
       - BUNDLE_TYPES=typesBundle.json
     
     volumes:
-      - "./types.json:/hydra/packages/hydra-indexer/types.json"
       - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
 
     depends_on:
