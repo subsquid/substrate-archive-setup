@@ -21,3 +21,12 @@ query {
     }
 }
 ```
+
+## Type definitons updates
+
+Most chains publish type definitions as an npm package. Some indexers (e.g. shiden or bifrost) has a script `gen-types.js` for generating the json type defintions. To update, run from the corresponding folder
+
+```bash
+yarn upgrade 
+node gen-types.js
+```
