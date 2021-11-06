@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   indexer:
-    image: subsquid/hydra-indexer:4
+    image: subsquid/hydra-indexer:4.2.0-alpha.7
     restart: unless-stopped
     environment:
       - WORKERS_NUMBER=1
@@ -21,11 +21,13 @@ services:
       - DB_PASS=postgres
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
-      - BLOCK_HEIGHT=0 # starting block height
+      - FORCE_HEIGHT=true
+      - BLOCK_HEIGHT=464691 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://bifrost-rpc.liebi.com/ws
       - BUNDLE_TYPES=typesBundle.json
-    
+      - TYPES_JSON=types.json
     volumes:
+      - "./types.json:/hydra/packages/hydra-indexer/types.json"
       - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
 
     depends_on:

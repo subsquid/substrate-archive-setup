@@ -1,0 +1,10 @@
+{
+  "name": "bifrost",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.16.0",
+    "@bifrost-finance/type-definitions": "^1.3.4"
+  }
+}
