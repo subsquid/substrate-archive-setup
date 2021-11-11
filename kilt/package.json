@@ -1,0 +1,9 @@
+{
+  "name": "kilt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@kiltprotocol/type-definitions": "^0.1.23"
+  }
+}
