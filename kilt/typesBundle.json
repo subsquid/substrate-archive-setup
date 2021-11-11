@@ -2689,7 +2689,8 @@
                 "Active": "Null",
                 "Leaving": "SessionIndex"
               }
-            }
+            },
+            "Keys": "SessionKeys1"
           }
         },
         {
@@ -2945,7 +2946,8 @@
             "Deposit": {
               "owner": "AccountId",
               "amount": "Balance"
-            }
+            },
+            "Keys": "SessionKeys1"
           }
         }
       ]
@@ -5639,7 +5641,8 @@
                 "Active": "Null",
                 "Leaving": "SessionIndex"
               }
-            }
+            },
+            "Keys": "SessionKeys1"
           }
         },
         {
@@ -5895,7 +5898,8 @@
             "Deposit": {
               "owner": "AccountId",
               "amount": "Balance"
-            }
+            },
+            "Keys": "SessionKeys1"
           }
         }
       ]
