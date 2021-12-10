@@ -23,7 +23,7 @@ services:
       - REDIS_URI=redis://redis:6379/0
       - FORCE_HEIGHT=true
       - BLOCK_HEIGHT=90514 # starting block height
-      - WS_PROVIDER_ENDPOINT_URI=wss://kusama-statemine-rpc.paritytech.net
+      - WS_PROVIDER_ENDPOINT_URI=wss://rpc.polkadot.io
     depends_on:
       - db
       - redis
