@@ -24,8 +24,8 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - FORCE_HEIGHT=true
-      - BUNDLE_TYPES=typesBundle.json
-      - TYPES_JSON=types.json
+      - BUNDLE_TYPES=/hydra/packages/hydra-indexer/typesBundle.json
+      - TYPES_JSON=/hydra/packages/hydra-indexer/types.json
       - BLOCK_HEIGHT=9807301 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://kusama-rpc.polkadot.io/
     depends_on:

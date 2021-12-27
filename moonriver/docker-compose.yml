@@ -24,8 +24,8 @@ services:
       - FORCE_HEIGHT=true
       - BLOCK_HEIGHT=100000 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://moonriver.api.onfinality.io/public-ws
-      - BUNDLE_TYPES=typesBundle.json
-    
+      - BUNDLE_TYPES=/hydra/packages/hydra-indexer/typesBundle.json
+
     volumes:
       - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
 
