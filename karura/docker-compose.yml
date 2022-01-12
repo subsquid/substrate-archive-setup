@@ -23,7 +23,6 @@ services:
       - REDIS_URI=redis://redis:6379/0
       - WS_PROVIDER_ENDPOINT_URI=wss://karura-rpc-3.aca-api.network/ws
       - BUNDLE_TYPES=typesBundle.json
-    
     volumes:
       - "./typesBundle.json:/hydra-indexer/typesBundle.json"
 
@@ -34,7 +33,7 @@ services:
       sh -c "yarn db:bootstrap && yarn start:prod"
 
   indexer-gateway:
-    image: subsquid/hydra-indexer-gateway:4
+    image: subsquid/hydra-indexer-gateway:5.0.0-alpha.21
     restart: unless-stopped
     depends_on:
       - redis
@@ -53,7 +52,7 @@ services:
       - HYDRA_INDEXER_STATUS_SERVICE=http://indexer-status-service:8081/status
 
   indexer-status-service:
-    image: subsquid/hydra-indexer-status-service:4
+    image: subsquid/hydra-indexer-status-service:5.0.0-alpha.21
     restart: unless-stopped
     depends_on:
       - redis
