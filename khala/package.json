@@ -1,0 +1,17 @@
+{
+  "name": "khala-indexer",
+  "version": "1.0.0",
+  "description": "generates khala typedefs",
+  "main": "gen-types.js",
+  "license": "MIT",
+  "scripts": {
+    "update-types": "node gen-types.js && ./node_modules/node-jq/bin/jq -c . < typesBundle.json > typesBundle.json.minified"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.7",
+    "@phala/typedefs": "^0.2.30"
+  },
+  "devDependencies": {
+    "node-jq": "^2.1.0"
+  }
+}
