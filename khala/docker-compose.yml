@@ -24,7 +24,6 @@ services:
       - FORCE_HEIGHT=true
       - BLOCK_HEIGHT=0 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://khala.api.onfinality.io/public-ws
-      #- BUNDLE_TYPES=typesBundle.json
       - BUNDLE_TYPES=/configs/typesBundle.json
     depends_on:
       - db
@@ -51,6 +50,8 @@ services:
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_PORT=5432
+      # - FORCE_HEIGHT=true
+      # - BLOCK_HEIGHT=1000000 # starting block height
       - HYDRA_INDEXER_STATUS_SERVICE=http://indexer-status-service:8081/status
 
   indexer-status-service:

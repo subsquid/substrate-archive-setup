@@ -23,13 +23,13 @@ services:
       - REDIS_URI=redis://redis:6379/0
       - WS_PROVIDER_ENDPOINT_URI=wss://acala-rpc-2.aca-api.network/ws
       - BUNDLE_TYPES=/configs/typesBundle.json
+    volumes:
+      - "./typesBundle.json:/configs/typesBundle.json"
     depends_on:
       - db
       - redis
     command: >
       sh -c "yarn db:bootstrap && yarn start:prod"
-    volumes:
-      - "./typesBundle.json:/configs/typesBundle.json"
 
   indexer-gateway:
     image: subsquid/hydra-indexer-gateway:5
