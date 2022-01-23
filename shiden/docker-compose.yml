@@ -25,13 +25,12 @@ services:
       - BLOCK_HEIGHT=196037 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://shiden.api.onfinality.io/public-ws
       - BUNDLE_TYPES=typesBundle.json
-      - TYPES_JSON=types.json
+      - BUNDLE_TYPES=/config/typesBundle.json
+    volumes:
+      - "./typesBundle.json:/config/typesBundle.json"
     depends_on:
       - db
       - redis
-    volumes:
-      - "./types.json:/hydra/packages/hydra-indexer/types.json"
-      - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
     command: >
       sh -c "yarn db:bootstrap && yarn start:prod"
 

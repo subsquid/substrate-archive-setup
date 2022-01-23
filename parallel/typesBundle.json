@@ -1,0 +1,259 @@
+{
+    "spec": {
+        "parallel": {
+            "rpc": {
+                "oracle": {
+                    "getValue": {
+                        "description": "Retrieves the oracle value for a given key.",
+                        "params": [
+                            {
+                                "name": "providerId",
+                                "type": "RpcDataProviderId"
+                            },
+                            {
+                                "name": "key",
+                                "type": "OracleKey"
+                            },
+                            {
+                                "name": "at",
+                                "type": "BlockHash",
+                                "isHistoric": true,
+                                "isOptional": true
+                            }
+                        ],
+                        "type": "Option<TimestampedValue>",
+                        "isSubscription": false,
+                        "jsonrpc": "oracle_getValue",
+                        "method": "getValue",
+                        "section": "oracle"
+                    },
+                    "getAllValues": {
+                        "description": "Retrieves all oracle values.",
+                        "params": [
+                            {
+                                "name": "providerId",
+                                "type": "RpcDataProviderId"
+                            },
+                            {
+                                "name": "at",
+                                "type": "BlockHash",
+                                "isHistoric": true,
+                                "isOptional": true
+                            }
+                        ],
+                        "type": "Vec<(OracleKey, Option<TimestampedValue>)>",
+                        "isSubscription": false,
+                        "jsonrpc": "oracle_getAllValues",
+                        "method": "getAllValues",
+                        "section": "oracle"
+                    }
+                },
+                "loans": {
+                    "getAccountLiquidity": {
+                        "description": "Retrieves the oracle value for a given key.",
+                        "params": [
+                            {
+                                "name": "account",
+                                "type": "AccountId"
+                            },
+                            {
+                                "name": "at",
+                                "type": "Option<Block>"
+                            }
+                        ],
+                        "type": "(Liquidity, Shortfall)",
+                        "isSubscription": false,
+                        "jsonrpc": "loans_getAccountLiquidity",
+                        "method": "getAccountLiquidity",
+                        "section": "loans"
+                    }
+                }
+            },
+            "instances": {
+                "council": [
+                    "generalCouncil"
+                ]
+            },
+            "types": [
+                {
+                    "minmax": [
+                        0,
+                        null
+                    ],
+                    "types": {
+                        "CallOf": "Call",
+                        "DispatchTime": {
+                            "_enum": {
+                                "At": "BlockNumber",
+                                "After": "BlockNumber"
+                            }
+                        },
+                        "ScheduleTaskIndex": "u32",
+                        "DelayedOrigin": {
+                            "delay": "BlockNumber",
+                            "origin": "PalletsOrigin"
+                        },
+                        "AuthorityOrigin": "DelayedOrigin",
+                        "StorageValue": "Vec<u8>",
+                        "GraduallyUpdate": {
+                            "key": "StorageKey",
+                            "targetValue": "StorageValue",
+                            "perBlock": "StorageValue"
+                        },
+                        "StorageKeyBytes": "Vec<u8>",
+                        "StorageValueBytes": "Vec<u8>",
+                        "RpcDataProviderId": "Text",
+                        "DataProviderId": "u8",
+                        "TimestampedValue": {
+                            "value": "OracleValue",
+                            "timestamp": "Moment"
+                        },
+                        "TimestampedValueOf": "TimestampedValue",
+                        "OrderedSet": "Vec<AccountId>",
+                        "OrmlAccountData": {
+                            "free": "Balance",
+                            "reserved": "Balance",
+                            "frozen": "Balance"
+                        },
+                        "OrmlBalanceLock": {
+                            "amount": "Balance",
+                            "id": "LockIdentifier"
+                        },
+                        "AuctionInfo": {
+                            "bid": "Option<(AccountId, Balance)>",
+                            "start": "BlockNumber",
+                            "end": "Option<BlockNumber>"
+                        },
+                        "DelayedDispatchTime": {
+                            "_enum": {
+                                "At": "BlockNumber",
+                                "After": "BlockNumber"
+                            }
+                        },
+                        "DispatchId": "u32",
+                        "Price": "FixedU128",
+                        "OrmlVestingSchedule": {
+                            "start": "BlockNumber",
+                            "period": "BlockNumber",
+                            "periodCount": "u32",
+                            "perPeriod": "Compact<Balance>"
+                        },
+                        "VestingScheduleOf": "OrmlVestingSchedule",
+                        "OrmlCurrencyId": "u8",
+                        "PoolInfo": {
+                            "totalShares": "Share",
+                            "rewards": "BTreeMap<OrmlCurrencyId, (Balance, Balance)>"
+                        },
+                        "CompactBalance": "Compact<Balance>",
+                        "PoolInfoV0": {
+                            "totalShares": "Compact<Share>",
+                            "totalRewards": "CompactBalance",
+                            "totalWithdrawnRewards": "CompactBalance"
+                        },
+                        "Share": "u128",
+                        "OracleValue": "Price",
+                        "Deposits": {
+                            "voucherBalance": "Balance",
+                            "isCollateral": "bool"
+                        },
+                        "BorrowSnapshot": {
+                            "principal": "Balance",
+                            "borrowIndex": "u128"
+                        },
+                        "EarnedSnapshot": {
+                            "totalEarnedPrior": "Balance",
+                            "exchangeRatePrior": "u128"
+                        },
+                        "JumpModel": {
+                            "baseRate": "Rate",
+                            "jumpRate": "Rate",
+                            "fullRate": "Rate",
+                            "jumpUtilization": "Ratio"
+                        },
+                        "CurveModel": {
+                            "baseRate": "Rate"
+                        },
+                        "InterestRateModel": {
+                            "_enum": {
+                                "JumpModel": "JumpModel",
+                                "CurveModel": "CurveModel"
+                            }
+                        },
+                        "Market": {
+                            "collateralFactor": "Ratio",
+                            "reserveFactor": "Ratio",
+                            "closeFactor": "Ratio",
+                            "liquidateIncentive": "Rate",
+                            "rateModel": "InterestRateModel",
+                            "state": "MarketState",
+                            "cap": "Balance",
+                            "ptokenId": "CurrencyId"
+                        },
+                        "MarketState": {
+                            "_enum": [
+                                "Active",
+                                "Pending",
+                                "Supervision"
+                            ]
+                        },
+                        "Liquidity": "FixedU128",
+                        "Shortfall": "FixedU128",
+                        "ValidatorInfo": {
+                            "name": "Option<Text>",
+                            "address": "AccountId",
+                            "stakes": "u128",
+                            "score": "u128"
+                        },
+                        "ValidatorSet": "Vec<ValidatorInfo>",
+                        "StakingSettlementKind": {
+                            "_enum": [
+                                "Reward",
+                                "Slash"
+                            ]
+                        },
+                        "MatchingLedger": {
+                            "totalStakeAmount": "Balance",
+                            "totalUnstakeAmount": "Balance"
+                        },
+                        "SwapType": {
+                            "_enum": [
+                                "Buy",
+                                "Sell"
+                            ]
+                        },
+                        "AmountEvaluation": {
+                            "accountAmount": "Balance",
+                            "poolAmount": "Balance"
+                        },
+                        "PoolLiquidityAmount": {
+                            "baseAmount": "Balance",
+                            "quoteAmount": "Balance",
+                            "ownership": "Balance"
+                        },
+                        "Amount": "i128",
+                        "AmountOf": "Amount",
+                        "Rate": "FixedU128",
+                        "Ratio": "Permill",
+                        "Timestamp": "u64",
+                        "PriceDetail": "(Price, Timestamp)",
+                        "CurrencyId": "AssetId",
+                        "CurrencyIdOf": "CurrencyId",
+                        "Currency": "CurrencyId",
+                        "AssetIdOf": "AssetId",
+                        "OracleKey": "AssetId",
+                        "Route": "Vec<(AssetId, AssetId)>",
+                        "Address": "MultiAddress",
+                        "LookupSource": "MultiAddress",
+                        "TAssetBalance": "u128"
+                    }
+                }
+            ],
+            "alias": {
+                "tokens": {
+                    "AccountData": "OrmlAccountData",
+                    "BalanceLock": "OrmlBalanceLock"
+                }
+            }
+        }
+    }
+}

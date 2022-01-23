@@ -21,10 +21,10 @@ services:
       - DB_PASS=postgres
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
-      - WS_PROVIDER_ENDPOINT_URI=wss://karura-rpc-3.aca-api.network/ws
-      - BUNDLE_TYPES=typesBundle.json
+      - WS_PROVIDER_ENDPOINT_URI=wss://karura.api.onfinality.io/public-ws
+      - BUNDLE_TYPES=/config/typesBundle.json
     volumes:
-      - "./typesBundle.json:/hydra-indexer/typesBundle.json"
+      - "./typesBundle.json:/config/typesBundle.json"
 
     depends_on:
       - db

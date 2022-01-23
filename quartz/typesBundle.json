@@ -1,0 +1,279 @@
+{
+  "spec": {
+    "quartz": {
+      "rpc": {
+        "unique": {
+          "adminlist": {
+            "description": "Get admin list",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "Vec<PalletCommonAccountBasicCrossAccountIdRepr>"
+          },
+          "allowlist": {
+            "description": "Get allowlist",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "Vec<PalletCommonAccountBasicCrossAccountIdRepr>"
+          },
+          "accountTokens": {
+            "description": "Get tokens owned by account",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "account",
+                "type": "PalletCommonAccountBasicCrossAccountIdRepr"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "Vec<UpDataStructsTokenId>"
+          },
+          "collectionTokens": {
+            "description": "Get tokens contained in collection",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "Vec<UpDataStructsTokenId>"
+          },
+          "lastTokenId": {
+            "description": "Get last token id",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "UpDataStructsTokenId"
+          },
+          "accountBalance": {
+            "description": "Get amount of different user tokens",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "account",
+                "type": "PalletCommonAccountBasicCrossAccountIdRepr"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "u32"
+          },
+          "balance": {
+            "description": "Get amount of specific account token",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "account",
+                "type": "PalletCommonAccountBasicCrossAccountIdRepr"
+              },
+              {
+                "name": "tokenId",
+                "type": "UpDataStructsTokenId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "u128"
+          },
+          "allowance": {
+            "description": "Get allowed amount",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "sender",
+                "type": "PalletCommonAccountBasicCrossAccountIdRepr"
+              },
+              {
+                "name": "spender",
+                "type": "PalletCommonAccountBasicCrossAccountIdRepr"
+              },
+              {
+                "name": "tokenId",
+                "type": "UpDataStructsTokenId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "u128"
+          },
+          "tokenOwner": {
+            "description": "Get token owner",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "tokenId",
+                "type": "UpDataStructsTokenId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "PalletCommonAccountBasicCrossAccountIdRepr"
+          },
+          "constMetadata": {
+            "description": "Get token constant metadata",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "tokenId",
+                "type": "UpDataStructsTokenId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "Vec<u8>"
+          },
+          "variableMetadata": {
+            "description": "Get token variable metadata",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "tokenId",
+                "type": "UpDataStructsTokenId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "Vec<u8>"
+          },
+          "tokenExists": {
+            "description": "Check if token exists",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "tokenId",
+                "type": "UpDataStructsTokenId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "bool"
+          },
+          "collectionById": {
+            "description": "Get collection by specified id",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "Option<UpDataStructsCollection>"
+          },
+          "collectionStats": {
+            "description": "Get collection stats",
+            "params": [
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "UpDataStructsCollectionStats"
+          },
+          "allowed": {
+            "description": "Check if user is allowed to use collection",
+            "params": [
+              {
+                "name": "collection",
+                "type": "UpDataStructsCollectionId"
+              },
+              {
+                "name": "account",
+                "type": "PalletCommonAccountBasicCrossAccountIdRepr"
+              },
+              {
+                "name": "at",
+                "type": "Hash",
+                "isOptional": true
+              }
+            ],
+            "type": "bool"
+          }
+        }
+      }
+    }
+  }
+}
