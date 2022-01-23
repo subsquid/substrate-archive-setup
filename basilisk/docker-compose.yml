@@ -25,11 +25,11 @@ services:
       - BLOCK_HEIGHT=100000 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://basilisk.api.onfinality.io/public-ws
       - BUNDLE_TYPES=/configs/typesBundle.json
+    volumes:
+      - "./typesBundle.json:/configs/typesBundle.json"
     depends_on:
       - db
       - redis
-    volumes:
-      - "./typesBundle.json:/configs/typesBundle.json"
     command: >
       sh -c "yarn db:bootstrap && yarn start:prod"
 
