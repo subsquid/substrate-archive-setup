@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@acala-network/type-definitions": "^4.0.1",
+    "@babel/runtime": "^7.16.3"
+  }
+}
