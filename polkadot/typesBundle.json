@@ -1,0 +1,172 @@
+{
+  "spec": {
+    "polkadot": [
+      {
+        "minmax": [
+          0,
+          12
+        ],
+        "types": {
+          "CompactAssignments": "CompactAssignmentsTo257",
+          "RawSolution": "RawSolutionWith16",
+          "Keys": "SessionKeys5",
+          "ProxyType": {
+            "_enum": {
+              "Any": 0,
+              "NonTransfer": 1,
+              "Governance": 2,
+              "Staking": 3,
+              "UnusedSudoBalances": 4,
+              "IdentityJudgement": 5,
+              "CancelProxy": 6,
+              "Auction": 7
+            }
+          },
+          "AccountInfo": "AccountInfoWithRefCount",
+          "Address": "AccountId",
+          "LookupSource": "AccountId",
+          "ValidatorPrefs": "ValidatorPrefsWithCommission",
+          "OpenTip": "OpenTipTo225",
+          "RefCount": "RefCountTo259"
+        }
+      },
+      {
+        "minmax": [
+          13,
+          22
+        ],
+        "types": {
+          "CompactAssignments": "CompactAssignmentsTo257",
+          "RawSolution": "RawSolutionWith16",
+          "Keys": "SessionKeys5",
+          "ProxyType": {
+            "_enum": {
+              "Any": 0,
+              "NonTransfer": 1,
+              "Governance": 2,
+              "Staking": 3,
+              "UnusedSudoBalances": 4,
+              "IdentityJudgement": 5,
+              "CancelProxy": 6,
+              "Auction": 7
+            }
+          },
+          "AccountInfo": "AccountInfoWithRefCount",
+          "Address": "AccountId",
+          "LookupSource": "AccountId",
+          "ValidatorPrefs": "ValidatorPrefsWithCommission",
+          "RefCount": "RefCountTo259"
+        }
+      },
+      {
+        "minmax": [
+          23,
+          24
+        ],
+        "types": {
+          "CompactAssignments": "CompactAssignmentsWith16",
+          "RawSolution": "RawSolutionWith16",
+          "Keys": "SessionKeys5",
+          "ProxyType": {
+            "_enum": {
+              "Any": 0,
+              "NonTransfer": 1,
+              "Governance": 2,
+              "Staking": 3,
+              "UnusedSudoBalances": 4,
+              "IdentityJudgement": 5,
+              "CancelProxy": 6,
+              "Auction": 7
+            }
+          },
+          "AccountInfo": "AccountInfoWithRefCount",
+          "Address": "AccountId",
+          "LookupSource": "AccountId",
+          "ValidatorPrefs": "ValidatorPrefsWithCommission",
+          "RefCount": "RefCountTo259"
+        }
+      },
+      {
+        "minmax": [
+          25,
+          27
+        ],
+        "types": {
+          "CompactAssignments": "CompactAssignmentsWith16",
+          "RawSolution": "RawSolutionWith16",
+          "Keys": "SessionKeys5",
+          "ProxyType": {
+            "_enum": {
+              "Any": 0,
+              "NonTransfer": 1,
+              "Governance": 2,
+              "Staking": 3,
+              "UnusedSudoBalances": 4,
+              "IdentityJudgement": 5,
+              "CancelProxy": 6,
+              "Auction": 7
+            }
+          },
+          "AccountInfo": "AccountInfoWithRefCount",
+          "Address": "AccountId",
+          "LookupSource": "AccountId",
+          "ValidatorPrefs": "ValidatorPrefsWithCommission"
+        }
+      },
+      {
+        "minmax": [
+          28,
+          29
+        ],
+        "types": {
+          "CompactAssignments": "CompactAssignmentsWith16",
+          "RawSolution": "RawSolutionWith16",
+          "Keys": "SessionKeys6",
+          "ProxyType": {
+            "_enum": {
+              "Any": 0,
+              "NonTransfer": 1,
+              "Governance": 2,
+              "Staking": 3,
+              "UnusedSudoBalances": 4,
+              "IdentityJudgement": 5,
+              "CancelProxy": 6,
+              "Auction": 7
+            }
+          },
+          "AccountInfo": "AccountInfoWithDualRefCount"
+        }
+      },
+      {
+        "minmax": [
+          30,
+          9109
+        ],
+        "types": {
+          "CompactAssignments": "CompactAssignmentsWith16",
+          "RawSolution": "RawSolutionWith16",
+          "Keys": "SessionKeys6",
+          "ProxyType": {
+            "_enum": {
+              "Any": 0,
+              "NonTransfer": 1,
+              "Governance": 2,
+              "Staking": 3,
+              "UnusedSudoBalances": 4,
+              "IdentityJudgement": 5,
+              "CancelProxy": 6,
+              "Auction": 7
+            }
+          }
+        }
+      },
+      {
+        "minmax": [
+          9110,
+          null
+        ],
+        "types": {}
+      }
+    ]
+  }
+}
