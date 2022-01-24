@@ -14,7 +14,7 @@ services:
     image: subsquid/hydra-indexer:5
     restart: unless-stopped
     environment:
-      - WORKERS_NUMBER=1
+      - WORKERS_NUMBER=5
       - DB_NAME=indexer
       - DB_HOST=db
       - DB_USER=postgres
@@ -22,12 +22,12 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - FORCE_HEIGHT=true
-      - BLOCK_HEIGHT=5000000 # starting block height
+      - BLOCK_HEIGHT=1000 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://rpc.darwinia.network
-      - BUNDLE_TYPES=typesBundle.json
+      - BUNDLE_TYPES=/configs/typesBundle.json
     
     volumes:
-      - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
+      - "./typesBundle.json:/configs/typesBundle.json"
 
     depends_on:
       - db
@@ -36,7 +36,7 @@ services:
       sh -c "yarn db:bootstrap && yarn start:prod"
 
   indexer-gateway:
-    image: subsquid/hydra-indexer-gateway:4
+    image: subsquid/hydra-indexer-gateway:5
     restart: unless-stopped
     depends_on:
       - redis
@@ -55,7 +55,7 @@ services:
       - HYDRA_INDEXER_STATUS_SERVICE=http://indexer-status-service:8081/status
 
   indexer-status-service:
-    image: subsquid/hydra-indexer-status-service:4
+    image: subsquid/hydra-indexer-status-service:5
     restart: unless-stopped
     depends_on:
       - redis
