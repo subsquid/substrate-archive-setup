@@ -14,22 +14,20 @@ services:
     image: subsquid/hydra-indexer:5
     restart: unless-stopped
     environment:
-      - WORKERS_NUMBER=1
+      - WORKERS_NUMBER=5
       - DB_NAME=indexer
       - DB_HOST=db
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
-      - BLOCK_HEIGHT=1840186 # starting block height
+      - BLOCK_HEIGHT=10000 # starting block height
       - FORCE_HEIGHT=true
       - WS_PROVIDER_ENDPOINT_URI=wss://node.equilibrium.io
-      - TYPES_JSON=types.json
-      - BUNDLE_TYPES=typesBundle.json
+      - BUNDLE_TYPES=/configs/typesBundle.json
     
     volumes:
-      - "./types.json:/hydra/packages/hydra-indexer/types.json"
-      - "./typesBundle.json:/hydra/packages/hydra-indexer/typesBundle.json"
+      - "./typesBundle.json:/configs/typesBundle.json"
 
     depends_on:
       - db
