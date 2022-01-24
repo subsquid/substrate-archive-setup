@@ -14,7 +14,7 @@ services:
     image: subsquid/hydra-indexer:5
     restart: unless-stopped
     environment:
-      - WORKERS_NUMBER=5
+      - WORKERS_NUMBER=1
       - DB_NAME=indexer
       - DB_HOST=db
       - DB_USER=postgres
@@ -23,7 +23,7 @@ services:
       - REDIS_URI=redis://redis:6379/0
       - FORCE_HEIGHT=true
       - BLOCK_HEIGHT=0 # starting block height
-      - WS_PROVIDER_ENDPOINT_URI=wss://rpc-rocky.crust.network
+      - WS_PROVIDER_ENDPOINT_URI=wss://rpc.crust.network
       - BUNDLE_TYPES=/configs/typesBundle.json
     depends_on:
       - db
