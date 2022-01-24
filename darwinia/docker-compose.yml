@@ -22,7 +22,7 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - FORCE_HEIGHT=true
-      - BLOCK_HEIGHT=1000 # starting block height
+      - BLOCK_HEIGHT=0 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://rpc.darwinia.network
       - BUNDLE_TYPES=/configs/typesBundle.json
     
