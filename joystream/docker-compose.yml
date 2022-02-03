@@ -14,19 +14,20 @@ services:
     image: subsquid/hydra-indexer:5
     restart: unless-stopped
     environment:
-      - WORKERS_NUMBER=50
+      - WORKERS_NUMBER=1
       - DB_NAME=indexer
       - DB_HOST=db
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_PORT=5432
-      - REDIS_URI=redis://redis:6379/0
       - FORCE_HEIGHT=true
-      - BLOCK_HEIGHT=10000 # starting block height
-      - WS_PROVIDER_ENDPOINT_URI=wss://kusama-rpc.polkadot.io
-      - BUNDLE_TYPES=/configs/typesBundle.json
+      - BLOCK_HEIGHT=0 # starting block height
+      - REDIS_URI=redis://redis:6379/0
+      - WS_PROVIDER_ENDPOINT_URI=wss://rome-rpc-endpoint.joystream.org:9944
+      - TYPES_JSON=/config/types.json
     volumes:
-      - "./typesBundle.json:/configs/typesBundle.json"
+      - "./types.json:/config/types.json"
+
     depends_on:
       - db
       - redis
