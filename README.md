@@ -22,6 +22,17 @@ query {
 }
 ```
 
+## Running in production 
+
+The provided docker compose setup is a minimal configuration best suitable for dev and testing envorinmonents. For a stable production deployment we recommend the following.
+
+- Use a private gRPC endpoint (`WS_PROVIDER_ENDPOINT_URI` env variable)
+- Use managed Postgres database with non-root access (`DB_*` env variables)
+- Collect and monitor [Prometheus](https://prometheus.io/) metrics exposed at port 9090
+- Increase `WORKERS_NUMBER` to speed up the syncing. Usually somewhere between 5-50 workers is a sweet spot depending on the gRPC endpoint capacity.
+
+To reliably run a Squid Archive we recommend 16GB RAM and modern CPU. Database storage requirements depend on the size of the network. A rule of thumb is to reserve around 100 kb per block, so e.g. for Kusama with ~10M blocks one needs about 1Tb for Postgres storage. 
+
 ## Type definitons updates
 
 Most chains publish type definitions as an npm package. Some archives (e.g. shiden or bifrost) has a script `gen-types.js` for generating the json type defintions. To update, run from the corresponding folder
