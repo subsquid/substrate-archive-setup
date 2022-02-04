@@ -21,7 +21,7 @@ services:
       - DB_PASS=postgres
       - DB_PORT=5432
       - FORCE_HEIGHT=true
-      - BLOCK_HEIGHT=0 # starting block height
+      - BLOCK_HEIGHT=4191207 # starting block height
       - REDIS_URI=redis://redis:6379/0
       - WS_PROVIDER_ENDPOINT_URI=wss://rome-rpc-endpoint.joystream.org:9944
       - TYPES_JSON=/config/types.json
