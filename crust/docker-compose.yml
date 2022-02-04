@@ -1,5 +1,4 @@
 version: "3.4"
-
 services:
   db:
     image: postgres:12
@@ -9,7 +8,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
   indexer:
     image: subsquid/hydra-indexer:5
     restart: unless-stopped
@@ -32,7 +30,8 @@ services:
       - "./typesBundle.json:/configs/typesBundle.json"
     command: >
       sh -c "yarn db:bootstrap && yarn start:prod"
-
+    ports:
+      - 9090:9090
   indexer-gateway:
     image: subsquid/hydra-indexer-gateway:5
     restart: unless-stopped
@@ -53,7 +52,6 @@ services:
       # - FORCE_HEIGHT=true
       # - BLOCK_HEIGHT=1000000 # starting block height
       - HYDRA_INDEXER_STATUS_SERVICE=http://indexer-status-service:8081/status
-
   indexer-status-service:
     image: subsquid/hydra-indexer-status-service:5
     restart: unless-stopped
@@ -62,7 +60,6 @@ services:
     environment:
       REDIS_URI: redis://redis:6379/0
       PORT: 8081
-
   redis:
     image: redis:6.0-alpine
     restart: always
