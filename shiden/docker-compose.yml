@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
   indexer:
-    image: subsquid/hydra-indexer:5
+    image: subsquid/hydra-indexer-evm:5
     restart: unless-stopped
     environment:
       - WORKERS_NUMBER=5
@@ -34,7 +34,7 @@ services:
     ports:
       - 9090:9090
   indexer-gateway:
-    image: subsquid/hydra-indexer-gateway:5
+    image: subsquid/hydra-moonriver-flat-indexer-gateway:5
     restart: unless-stopped
     depends_on:
       - redis
