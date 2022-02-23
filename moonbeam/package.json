@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@acala-network/type-definitions": "^4.0.1",
+    "@babel/runtime": "^7.16.3",
+    "moonbeam-types-bundle": "^2.0.3"
+  }
+}
