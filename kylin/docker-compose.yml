@@ -22,7 +22,7 @@ services:
       - REDIS_URI=redis://redis:6379/0
       - BLOCK_HEIGHT=0 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://chachacha.kylin-node.co.uk
-      - TYPES_JSON=types.json
+      - TYPES_JSON=/hydra/packages/hydra-indexer/types.json
       #- BUNDLE_TYPES=typesBundle.json
     volumes:
       - "./types.json:/hydra/packages/hydra-indexer/types.json"
