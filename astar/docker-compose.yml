@@ -28,7 +28,7 @@ services:
     ports:
       - 9090:9090
   indexer-gateway:
-    image: image: subsquid/hydra-evm-indexer-gateway:5
+    image: subsquid/hydra-evm-indexer-gateway:5
     restart: unless-stopped
     depends_on:
       - redis
