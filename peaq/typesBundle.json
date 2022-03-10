@@ -1,0 +1,15 @@
+{
+  "spec": {
+    "peaq": {
+      "types": {},
+      "typesAlias": {},
+      "versions": [
+        {
+           "minmax": [0, 1010],
+           "types": {},
+           "typesAlias": {}
+        }
+      ]
+    }
+  }
+}
