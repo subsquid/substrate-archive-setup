@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
   indexer:
-    image: subsquid/hydra-indexer-evm:5
+    image: subsquid/hydra-evm-indexer:5
     restart: "no"
     environment:
       - WORKERS_NUMBER=3
@@ -19,12 +19,7 @@ services:
       - DB_PASS=postgres
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
-      - FORCE_HEIGHT=true
-      - BLOCK_HEIGHT=0 # starting block height
       - WS_PROVIDER_ENDPOINT_URI=wss://moonriver.api.onfinality.io/public-ws
-      - BUNDLE_TYPES=/configs/typesBundle.json
-    volumes:
-      - "./typesBundle.json:/configs/typesBundle.json"
     depends_on:
       - db
       - redis
@@ -33,7 +28,7 @@ services:
     ports:
       - 9090:9090
   indexer-gateway:
-    image: subsquid/hydra-moonriver-flat-indexer-gateway:5
+    image: subsquid/hydra-evm-indexer-gateway:5
     restart: unless-stopped
     depends_on:
       - redis

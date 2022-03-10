@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
   indexer:
-    image: subsquid/hydra-indexer-evm:5
+    image: subsquid/hydra-evm-indexer:5
     restart: unless-stopped
     environment:
       - WORKERS_NUMBER=5
@@ -20,9 +20,6 @@ services:
       - DB_PORT=5432
       - REDIS_URI=redis://redis:6379/0
       - WS_PROVIDER_ENDPOINT_URI=wss://rpc.astar.network
-      - BUNDLE_TYPES=/configs/typesBundle.json
-    volumes:
-      - "./typesBundle.json:/configs/typesBundle.json"
     depends_on:
       - db
       - redis
@@ -31,7 +28,7 @@ services:
     ports:
       - 9090:9090
   indexer-gateway:
-    image: subsquid/hydra-moonriver-flat-indexer-gateway:5
+    image: subsquid/hydra-evm-indexer-gateway:5
     restart: unless-stopped
     depends_on:
       - redis
