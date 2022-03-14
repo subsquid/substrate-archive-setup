@@ -8,3 +8,5 @@ indexerStatusService:
   image: subsquid/hydra-indexer-status-service:5
 redis:
   image: redis:6.0-alpine
+provider:
+  endpoint: wss://acala-rpc-2.aca-api.network/ws

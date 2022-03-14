@@ -1,0 +1,414 @@
+{
+  "spec": {
+    "kusama": {
+      "types": [
+        {
+          "minmax": [
+            1019,
+            1031
+          ],
+          "types": {
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "LookupSource",
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "LookupSource": "IndicesLookupSource",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "BalanceLock": "BalanceLockTo212",
+            "DispatchError": "DispatchErrorTo198",
+            "DispatchInfo": "DispatchInfoTo244",
+            "Heartbeat": "HeartbeatTo244",
+            "IdentityInfo": "IdentityInfoTo198",
+            "Multiplier": "Fixed64",
+            "OpenTip": "OpenTipTo225",
+            "RefCount": "RefCountTo259",
+            "ReferendumInfo": "ReferendumInfoTo239",
+            "SlashingSpans": "SlashingSpansTo204",
+            "StakingLedger": "StakingLedgerTo223",
+            "Votes": "VotesTo230",
+            "Weight": "u32"
+          }
+        },
+        {
+          "minmax": [
+            1032,
+            1042
+          ],
+          "types": {
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "LookupSource",
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "LookupSource": "IndicesLookupSource",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "BalanceLock": "BalanceLockTo212",
+            "DispatchInfo": "DispatchInfoTo244",
+            "Heartbeat": "HeartbeatTo244",
+            "Multiplier": "Fixed64",
+            "OpenTip": "OpenTipTo225",
+            "RefCount": "RefCountTo259",
+            "ReferendumInfo": "ReferendumInfoTo239",
+            "SlashingSpans": "SlashingSpansTo204",
+            "StakingLedger": "StakingLedgerTo223",
+            "Votes": "VotesTo230",
+            "Weight": "u32"
+          }
+        },
+        {
+          "minmax": [
+            1043,
+            1045
+          ],
+          "types": {
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "LookupSource",
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "LookupSource": "IndicesLookupSource",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "BalanceLock": "BalanceLockTo212",
+            "DispatchInfo": "DispatchInfoTo244",
+            "Heartbeat": "HeartbeatTo244",
+            "Multiplier": "Fixed64",
+            "OpenTip": "OpenTipTo225",
+            "RefCount": "RefCountTo259",
+            "ReferendumInfo": "ReferendumInfoTo239",
+            "StakingLedger": "StakingLedgerTo223",
+            "Votes": "VotesTo230",
+            "Weight": "u32"
+          }
+        },
+        {
+          "minmax": [
+            1046,
+            1054
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "AccountId",
+            "LookupSource": "AccountId",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "DispatchInfo": "DispatchInfoTo244",
+            "Heartbeat": "HeartbeatTo244",
+            "Multiplier": "Fixed64",
+            "OpenTip": "OpenTipTo225",
+            "RefCount": "RefCountTo259",
+            "ReferendumInfo": "ReferendumInfoTo239",
+            "StakingLedger": "StakingLedgerTo240",
+            "Weight": "u32"
+          }
+        },
+        {
+          "minmax": [
+            1055,
+            1056
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "AccountId",
+            "LookupSource": "AccountId",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "DispatchInfo": "DispatchInfoTo244",
+            "Heartbeat": "HeartbeatTo244",
+            "Multiplier": "Fixed64",
+            "OpenTip": "OpenTipTo225",
+            "RefCount": "RefCountTo259",
+            "StakingLedger": "StakingLedgerTo240",
+            "Weight": "u32"
+          }
+        },
+        {
+          "minmax": [
+            1057,
+            1061
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "AccountId",
+            "LookupSource": "AccountId",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "DispatchInfo": "DispatchInfoTo244",
+            "Heartbeat": "HeartbeatTo244",
+            "OpenTip": "OpenTipTo225",
+            "RefCount": "RefCountTo259"
+          }
+        },
+        {
+          "minmax": [
+            1062,
+            2012
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "AccountId",
+            "LookupSource": "AccountId",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "OpenTip": "OpenTipTo225",
+            "RefCount": "RefCountTo259"
+          }
+        },
+        {
+          "minmax": [
+            2013,
+            2022
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsTo257",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "AccountId",
+            "LookupSource": "AccountId",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "RefCount": "RefCountTo259"
+          }
+        },
+        {
+          "minmax": [
+            2023,
+            2024
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsWith16",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "AccountId",
+            "LookupSource": "AccountId",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission",
+            "RefCount": "RefCountTo259"
+          }
+        },
+        {
+          "minmax": [
+            2025,
+            2027
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsWith16",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys5",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithRefCount",
+            "Address": "AccountId",
+            "LookupSource": "AccountId",
+            "ValidatorPrefs": "ValidatorPrefsWithCommission"
+          }
+        },
+        {
+          "minmax": [
+            2028,
+            2029
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsWith16",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys6",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AccountInfo": "AccountInfoWithDualRefCount"
+          }
+        },
+        {
+          "minmax": [
+            2030,
+            9000
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsWith16",
+            "RawSolution": "RawSolutionWith16",
+            "Keys": "SessionKeys6",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            }
+          }
+        },
+        {
+          "minmax": [
+            9010,
+            9099
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsWith24",
+            "RawSolution": "RawSolutionWith24",
+            "Keys": "SessionKeys6",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AssetInstance": "AssetInstanceV0",
+            "Fungibility": "FungibilityV0",
+            "Junction": "JunctionV0",
+            "Junctions": "JunctionsV0",
+            "MultiAsset": "MultiAssetV0",
+            "MultiAssetFilter": "MultiAssetFilterV0",
+            "MultiLocation": "MultiLocationV0",
+            "Response": "ResponseV0",
+            "WildFungibility": "WildFungibilityV0",
+            "WildMultiAsset": "WildMultiAssetV0",
+            "Xcm": "XcmV0",
+            "XcmError": "XcmErrorV0",
+            "XcmOrder": "XcmOrderV0"
+          }
+        },
+        {
+          "minmax": [
+            9100,
+            9105
+          ],
+          "types": {
+            "CompactAssignments": "CompactAssignmentsWith24",
+            "RawSolution": "RawSolutionWith24",
+            "Keys": "SessionKeys6",
+            "ProxyType": {
+              "_enum": [
+                "Any",
+                "NonTransfer",
+                "Governance",
+                "Staking",
+                "IdentityJudgement",
+                "CancelProxy",
+                "Auction"
+              ]
+            },
+            "AssetInstance": "AssetInstanceV1",
+            "Fungibility": "FungibilityV1",
+            "Junction": "JunctionV1",
+            "Junctions": "JunctionsV1",
+            "MultiAsset": "MultiAssetV1",
+            "MultiAssetFilter": "MultiAssetFilterV1",
+            "MultiLocation": "MultiLocationV1",
+            "Response": "ResponseV1",
+            "WildFungibility": "WildFungibilityV1",
+            "WildMultiAsset": "WildMultiAssetV1",
+            "Xcm": "XcmV1",
+            "XcmError": "XcmErrorV1",
+            "XcmOrder": "XcmOrderV1"
+          }
+        },
+        {
+          "minmax": [
+            9106,
+            null
+          ],
+          "types": {}
+        }
+      ]
+    }
+  }
+}
