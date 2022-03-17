@@ -38,7 +38,7 @@ Then navigate to `localhost:80/console` and explore the extrinsic and event quer
 
 Getting the archive in sync with the chain may take considerable time. To keep track of the status, use the following query.
 
-````gql
+```gql
 query {
   indexerStatus {
     head #current indexer block
@@ -68,4 +68,4 @@ Most chains publish type definitions as an npm package. Some archives (e.g. shid
 ```bash
 yarn upgrade
 node gen-types.js
-````
+```
