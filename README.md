@@ -46,6 +46,7 @@ query {
     inSync
   }
 }
+```
 
 Be aware the storage capacity of the persistent volume in `db.pv.yaml` is just 5Gi, so you need to adjust it to your current system.
 
