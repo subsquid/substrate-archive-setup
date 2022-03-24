@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@zeroio/type-definitions": "^0.0.14",
+    "@babel/runtime": "^7.16.3"
+  }
+}
