@@ -43,7 +43,7 @@ node gen-types.js
 ```
 ### ⚠️ Caveats for 🍏 M1 Macs
 
-A known issue #1 prevents M1 Macs from running the console.
+A known issue https://github.com/subsquid/squid/issues/21 prevents M1 Macs from running the console.
 Possible workaround:
 
 1. [Clone subsquid/hydra repo](https://github.com/subsquid/hydra)
