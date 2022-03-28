@@ -3,3 +3,4 @@
 *.csv
 .vsode
 .DS_Store
+**/charts

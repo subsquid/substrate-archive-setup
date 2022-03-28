@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: 0.0.1
-description: A helm chart for altair
-name: altair
+description: A helm chart for peaq
+name: peaq
 type: application
 version: 0.1.0
 dependencies:

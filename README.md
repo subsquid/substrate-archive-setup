@@ -29,9 +29,8 @@ query {
 To run a Squid Archive for a specific chain, navigate to the corresponding folder and to the /chart folder and run
 
 ```sh
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm dependency build
-helm install squid .
+helm install squid . --set-file squid.typesBundle=../typesBundle.json (or --set-file squid.types=../types.json)
 ```
 
 Then navigate to `localhost:80/console` and explore the extrinsic and event queries!

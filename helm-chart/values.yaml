@@ -1,0 +1,14 @@
+db:
+  image: postgres:12
+indexer:
+  image: subsquid/hydra-indexer-evm:5
+indexerGateway:
+  image: subsquid/hydra-moonriver-flat-indexer-gateway:5
+indexerStatusService:
+  image: subsquid/hydra-indexer-status-service:5
+redis:
+  image: redis:6.0-alpine
+provider:
+  endpoint: empty
+file:
+  typesBundle: empty
