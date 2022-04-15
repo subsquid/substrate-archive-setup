@@ -1,0 +1,15 @@
+squid:
+  db:
+    image: postgres:12
+  indexer:
+    image: subsquid/hydra-indexer:5
+    blockHeight: "0"
+    finalityThreshold: "0"
+  indexerGateway:
+    image: subsquid/hydra-indexer-gateway:5
+  indexerStatusService:
+    image: subsquid/hydra-indexer-status-service:5
+  redis:
+    image: redis:6.0-alpine
+  provider:
+    endpoint: wss://chachacha.kylin-node.co.uk

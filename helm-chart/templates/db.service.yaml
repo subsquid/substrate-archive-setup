@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Release.Name }}-db"
+  labels:
+    subsquid.io/component: db
+    subsquid.io/release: "{{ .Release.Name }}"
+  annotations:
+    subsquid.io/version: 0.2.0-alpha2
+spec:
+  selector:
+    subsquid.io/component: db
+    subsquid.io/release: "{{ .Release.Name }}"
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432

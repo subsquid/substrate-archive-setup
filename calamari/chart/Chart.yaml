@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: 0.0.1
+description: A helm chart for calamari
+name: calamari
+type: application
+version: 0.1.0
+dependencies:
+  - name: squid
+    version: ~0.1.0
+    repository: "file://../../helm-chart"

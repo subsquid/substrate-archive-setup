@@ -1,3 +1,6 @@
 **/node_modules
 *.sql
 *.csv
+.vsode
+.DS_Store
+**/charts

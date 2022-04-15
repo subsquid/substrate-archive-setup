@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Release.Name }}-indexer-configmap"
+  labels:
+    subsquid.io/component: indexer-configmap
+    subsquid.io/release: "{{ .Release.Name }}"
+data:
+  {{- if .Values.typesBundle }}   
+  typesBundle.json: |-
+    {{- .Values.typesBundle | nindent 6 -}}
+  {{- else }}
+  types.json: |-
+    {{- .Values.types | nindent 6 -}}
+  {{- end }}

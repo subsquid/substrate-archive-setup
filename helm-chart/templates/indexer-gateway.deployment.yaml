@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-indexer-gateway"
+  labels:
+    subsquid.io/component: indexer-gateway
+    subsquid.io/release: "{{ .Release.Name }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      subsquid.io/component: indexer-gateway
+      subsquid.io/release: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        subsquid.io/component: indexer-gateway
+        subsquid.io/release: "{{ .Release.Name }}"
+    spec:
+      initContainers:
+        - name: check-redis
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |-
+              OK=0
+              echo "Checking redis port"
+              while [ $OK != 1 ]; do
+                  echo -n "."
+                  nc -z {{ .Release.Name }}-redis 6379 2>&1 >/dev/null && OK=1 || sleep 1
+              done
+              echo
+              echo "Done"
+        - name: check-db
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |-
+              OK=0
+              echo "Checking db port"
+              while [ $OK != 1 ]; do
+                  echo -n "."
+                  nc -z {{ .Release.Name }}-db 5432 2>&1 >/dev/null && OK=1 || sleep 1
+              done
+              echo
+              echo "Done"
+        - name: check-indexer-status-service
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |-
+              OK=0
+              echo "Checking indexer-status-service port"
+              while [ $OK != 1 ]; do
+                  echo -n "."
+                  nc -z {{ .Release.Name }}-indexer-status-service 8081 2>&1 >/dev/null && OK=1 || sleep 1
+              done
+              echo
+              echo "Done"
+        - name: check-indexer
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |-
+              OK=0
+              echo "Checking indexer port"
+              while [ $OK != 1 ]; do
+                  echo -n "."
+                  nc -z {{ .Release.Name }}-indexer 9090 2>&1 >/dev/null && OK=1 || sleep 1
+              done
+              echo
+              echo "Done"
+      containers:
+        - name: indexer-gateway
+          image: "{{ .Values.indexerGateway.image }}"
+          ports:
+            - name: indexer-gateway
+              containerPort: 8080
+          env:
+            - name: DEV_MODE
+              value: "true"
+            - name: DB_NAME
+              value: indexer
+            - name: DB_HOST
+              value: "{{ .Release.Name }}-db"
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASS
+              value: postgres
+            - name: DB_PORT
+              value: "5432"
+            - name: HYDRA_INDEXER_STATUS_SERVICE
+              value: "http://{{ .Release.Name }}-indexer-status-service:8081/status"

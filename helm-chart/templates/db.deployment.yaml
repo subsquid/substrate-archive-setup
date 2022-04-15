@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-db"
+  labels:
+    subsquid.io/component: db
+    subsquid.io/release: "{{ .Release.Name }}"
+  annotations:
+    subsquid.io/version: 0.2.0-alpha2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      subsquid.io/component: db
+      subsquid.io/release: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        subsquid.io/component: db
+        subsquid.io/release: "{{ .Release.Name }}"
+    spec:
+      containers:
+        - name: db
+          image: "{{ .Values.db.image }}"
+          ports:
+            - name: db
+              containerPort: 5432
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: "{{ .Release.Name }}-db-pvc"

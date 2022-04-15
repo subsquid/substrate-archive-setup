@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: "{{ .Release.Name }}-indexer"
+  labels:
+    subsquid.io/component: indexer
+    subsquid.io/release: "{{ .Release.Name }}"
+spec:
+  serviceName: "indexer"
+  replicas: 1
+  selector:
+    matchLabels:
+      subsquid.io/component: indexer
+      subsquid.io/release: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        subsquid.io/component: indexer
+        subsquid.io/release: "{{ .Release.Name }}"
+    spec:
+      initContainers:
+        - name: check-db
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |-
+              OK=0
+              echo "Checking db port"
+              while [ $OK != 1 ]; do
+                  echo -n "."
+                  nc -z {{ .Release.Name }}-db 5432 2>&1 >/dev/null && OK=1 || sleep 1
+              done
+              echo
+              echo "Done"
+        - name: check-redis
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |-
+              OK=0
+              echo "Checking redis port"
+              while [ $OK != 1 ]; do
+                  echo -n "."
+                  nc -z {{ .Release.Name }}-redis 6379 2>&1 >/dev/null && OK=1 || sleep 1
+              done
+              echo
+              echo "Done"
+      containers:
+        - name: indexer
+          image: "{{ .Values.indexer.image }}"
+          command: ["sh"]
+          args: ["-c", "yarn db:bootstrap && yarn start:prod"]
+          env:
+            - name: WORKERS_NUMBER
+              value: "5"
+            - name: DB_NAME
+              value: indexer
+            - name: DB_HOST
+              value: "{{ .Release.Name }}-db"
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASS
+              value: postgres
+            - name: DB_PORT
+              value: "5432"
+            - name: REDIS_URI
+              value: redis://{{ .Release.Name }}-redis:6379/0
+            - name: WS_PROVIDER_ENDPOINT_URI
+              value: "{{ .Values.provider.endpoint }}"
+            - name: FORCE_HEIGHT
+              value: "{{ .Values.indexer.forceHeight }}"
+            - name: BLOCK_HEIGHT
+              value: "{{ .Values.indexer.blockHeight }}"   
+            - name: FINALITY_THRESHOLD
+              value: "{{ .Value.indexer.finalityThreshold }}"          
+            {{- if .Values.typesBundle }}   
+            - name: BUNDLE_TYPES
+              value: /configs/typesBundle.json
+            {{- end }}            
+          ports:
+            - name: indexer
+              containerPort: 9090
+          volumeMounts:
+            - name: configmap
+              mountPath: /configs
+      volumes:
+        - name: configmap
+          configMap:
+            name: "{{ .Release.Name }}-indexer-configmap"

@@ -1,0 +1,6 @@
+dependencies:
+- name: squid
+  repository: file://../../helm-chart
+  version: 0.1.0
+digest: sha256:345745de5ab172c369a98a8855e92f57485cb1c069c425fb8d5e3ec0296b13bc
+generated: "2022-03-28T22:15:28.264593+03:00"

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-redis"
+  labels:
+    subsquid.io/component: redis
+    subsquid.io/release: "{{ .Release.Name }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      subsquid.io/component: redis
+      subsquid.io/release: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        subsquid.io/component: redis
+        subsquid.io/release: "{{ .Release.Name }}"
+    spec:
+      containers:
+        - name: redis
+          image: "{{ .Values.redis.image }}"
+          ports:
+            - name: redis
+              containerPort: 6379

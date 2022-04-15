@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Release.Name }}-indexer-status-service"
+  labels:
+    subsquid.io/component: indexer-status-service
+    subsquid.io/release: "{{ .Release.Name }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      subsquid.io/component: indexer-status-service
+      subsquid.io/release: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        subsquid.io/component: indexer-status-service
+        subsquid.io/release: "{{ .Release.Name }}"
+    spec:
+      initContainers:
+        - name: check-redis
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |-
+              OK=0
+              echo "Checking redis port"
+              while [ $OK != 1 ]; do
+                  echo -n "."
+                  nc -z {{ .Release.Name }}-redis 6379 2>&1 >/dev/null && OK=1 || sleep 1
+              done
+              echo
+              echo "Done"
+      containers:
+        - name: indexer-status-service
+          image: "{{ .Values.indexerStatusService.image }}"
+          ports:
+            - name: indexer-port
+              containerPort: 8081
+          env:
+            - name: REDIS_URI
+              value: redis://{{ .Release.Name }}-redis:6379/0
+            - name: PORT
+              value: "8081"
