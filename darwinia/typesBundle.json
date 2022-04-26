@@ -133,7 +133,7 @@
             "BalanceLock": {
               "id": "LockIdentifier",
               "lockFor": "LockFor",
-              "reasons": "Reasons"
+              "lockReasons": "LockReasons"
             },
             "LockFor": {
               "_enum": {
@@ -180,13 +180,13 @@
               "claimedRewards": "Vec<EraIndex>"
             },
             "TimeDepositItem": {
-              "value": "Compact<Balance>",
-              "startTime": "Compact<TsInMs>",
-              "expireTime": "Compact<TsInMs>"
+              "value": "Balance",
+              "startTime": "TsInMs",
+              "expireTime": "TsInMs"
             },
             "ExposureT": {
-              "ownRingBalance": "Compact<Balance>",
-              "ownKtonBalance": "Compact<Balance>",
+              "ownRingBalance": "Balance",
+              "ownKtonBalance": "Balance",
               "ownPower": "Power",
               "totalPower": "Power",
               "others": "Vec<IndividualExposure>"
@@ -327,7 +327,7 @@
             "MMRRoot": "Hash",
             "EcdsaAddress": "EthereumAddress",
             "EcdsaMessage": "H256",
-            "RelayAuthoritySigner": "EcdsaAddress",
+            "RelayAuthoritySigner": "EthereumAddress",
             "RelayAuthorityMessage": "EcdsaMessage",
             "RelayAuthoritySignature": "EcdsaSignature",
             "Term": "BlockNumber",
@@ -378,7 +378,7 @@
               "amount": "Balance"
             },
             "InProcessOrders": {
-              "orders": "Vec<LaneId, MessageNonce>"
+              "orders": "Vec<(LaneId, MessageNonce)>"
             },
             "MMRProofResult": {
               "mmrSize": "u64",
@@ -422,6 +422,13 @@
             },
             "PowerOf": {
               "power": "Power"
+            },
+            "LockReasons": {
+              "_enum": {
+                "Fee": null,
+                "Misc": null,
+                "All": null
+              }
             }
           }
         },
@@ -462,7 +469,7 @@
             "BalanceLock": {
               "id": "LockIdentifier",
               "lockFor": "LockFor",
-              "reasons": "Reasons"
+              "lockReasons": "LockReasons"
             },
             "LockFor": {
               "_enum": {
@@ -509,13 +516,13 @@
               "claimedRewards": "Vec<EraIndex>"
             },
             "TimeDepositItem": {
-              "value": "Compact<Balance>",
-              "startTime": "Compact<TsInMs>",
-              "expireTime": "Compact<TsInMs>"
+              "value": "Balance",
+              "startTime": "TsInMs",
+              "expireTime": "TsInMs"
             },
             "ExposureT": {
-              "ownRingBalance": "Compact<Balance>",
-              "ownKtonBalance": "Compact<Balance>",
+              "ownRingBalance": "Balance",
+              "ownKtonBalance": "Balance",
               "ownPower": "Power",
               "totalPower": "Power",
               "others": "Vec<IndividualExposure>"
@@ -652,7 +659,7 @@
             "MMRRoot": "Hash",
             "EcdsaAddress": "EthereumAddress",
             "EcdsaMessage": "H256",
-            "RelayAuthoritySigner": "EcdsaAddress",
+            "RelayAuthoritySigner": "EthereumAddress",
             "RelayAuthorityMessage": "EcdsaMessage",
             "RelayAuthoritySignature": "EcdsaSignature",
             "Term": "BlockNumber",
@@ -703,7 +710,7 @@
               "amount": "Balance"
             },
             "InProcessOrders": {
-              "orders": "Vec<LaneId, MessageNonce>"
+              "orders": "Vec<(LaneId, MessageNonce)>"
             },
             "MMRProofResult": {
               "mmrSize": "u64",
@@ -753,6 +760,13 @@
               "consumers": "RefCount",
               "providers": "RefCount",
               "data": "AccountData"
+            },
+            "LockReasons": {
+              "_enum": {
+                "Fee": null,
+                "Misc": null,
+                "All": null
+              }
             }
           }
         },
@@ -793,7 +807,7 @@
             "BalanceLock": {
               "id": "LockIdentifier",
               "lockFor": "LockFor",
-              "reasons": "Reasons"
+              "lockReasons": "LockReasons"
             },
             "LockFor": {
               "_enum": {
@@ -813,12 +827,10 @@
               "moment": "BlockNumber"
             },
             "AccountData": {
-              "feeFrozen": "Balance",
               "free": "Balance",
               "reserved": "Balance",
               "freeKton": "Balance",
-              "reservedKton": "Balance",
-              "miscFrozen": "Balance"
+              "reservedKton": "Balance"
             },
             "RingBalance": "Balance",
             "KtonBalance": "Balance",
@@ -842,13 +854,13 @@
               "claimedRewards": "Vec<EraIndex>"
             },
             "TimeDepositItem": {
-              "value": "Compact<Balance>",
-              "startTime": "Compact<TsInMs>",
-              "expireTime": "Compact<TsInMs>"
+              "value": "Balance",
+              "startTime": "TsInMs",
+              "expireTime": "TsInMs"
             },
             "ExposureT": {
-              "ownRingBalance": "Compact<Balance>",
-              "ownKtonBalance": "Compact<Balance>",
+              "ownRingBalance": "Balance",
+              "ownKtonBalance": "Balance",
               "ownPower": "Power",
               "totalPower": "Power",
               "others": "Vec<IndividualExposure>"
@@ -975,7 +987,11 @@
               "tokenDecimals": "Option<Vec<u32>>",
               "tokenSymbol": "Option<Vec<Text>>"
             },
-            "AccountInfo": "AccountInfoWithTripleRefCount",
+            "AccountInfo": {
+              "nonce": "Index",
+              "refcount": "RefCount",
+              "data": "AccountData"
+            },
             "Signer": "EthereumAddress",
             "RelayAuthorityT": {
               "accountId": "AccountId",
@@ -986,7 +1002,7 @@
             "MMRRoot": "Hash",
             "EcdsaAddress": "EthereumAddress",
             "EcdsaMessage": "H256",
-            "RelayAuthoritySigner": "EcdsaAddress",
+            "RelayAuthoritySigner": "EthereumAddress",
             "RelayAuthorityMessage": "EcdsaMessage",
             "RelayAuthoritySignature": "EcdsaSignature",
             "Term": "BlockNumber",
@@ -1036,7 +1052,7 @@
               "amount": "Balance"
             },
             "InProcessOrders": {
-              "orders": "Vec<LaneId, MessageNonce>"
+              "orders": "Vec<(LaneId, MessageNonce)>"
             },
             "MMRProofResult": {
               "mmrSize": "u64",
@@ -1081,16 +1097,16 @@
             "PowerOf": {
               "power": "Power"
             },
-            "AccountInfoWithTripleRefCount": {
-              "nonce": "Index",
-              "consumers": "RefCount",
-              "providers": "RefCount",
-              "sufficients": "RefCount",
-              "data": "AccountData"
-            },
             "Address": "MultiAddress",
             "LookupSource": "MultiAddress",
-            "MultiAddress": "GenericMultiAddress"
+            "MultiAddress": "GenericMultiAddress",
+            "LockReasons": {
+              "_enum": {
+                "Fee": null,
+                "Misc": null,
+                "All": null
+              }
+            }
           }
         },
         {
@@ -1130,7 +1146,7 @@
             "BalanceLock": {
               "id": "LockIdentifier",
               "lockFor": "LockFor",
-              "reasons": "Reasons"
+              "lockReasons": "LockReasons"
             },
             "LockFor": {
               "_enum": {
@@ -1177,13 +1193,13 @@
               "claimedRewards": "Vec<EraIndex>"
             },
             "TimeDepositItem": {
-              "value": "Compact<Balance>",
-              "startTime": "Compact<TsInMs>",
-              "expireTime": "Compact<TsInMs>"
+              "value": "Balance",
+              "startTime": "TsInMs",
+              "expireTime": "TsInMs"
             },
             "ExposureT": {
-              "ownRingBalance": "Compact<Balance>",
-              "ownKtonBalance": "Compact<Balance>",
+              "ownRingBalance": "Balance",
+              "ownKtonBalance": "Balance",
               "ownPower": "Power",
               "totalPower": "Power",
               "others": "Vec<IndividualExposure>"
@@ -1309,7 +1325,11 @@
               "tokenDecimals": "Option<Vec<u32>>",
               "tokenSymbol": "Option<Vec<Text>>"
             },
-            "AccountInfo": "AccountInfoWithTripleRefCount",
+            "AccountInfo": {
+              "nonce": "Index",
+              "refcount": "RefCount",
+              "data": "AccountData"
+            },
             "Signer": "EthereumAddress",
             "RelayAuthorityT": {
               "accountId": "AccountId",
@@ -1320,7 +1340,7 @@
             "MMRRoot": "Hash",
             "EcdsaAddress": "EthereumAddress",
             "EcdsaMessage": "H256",
-            "RelayAuthoritySigner": "EcdsaAddress",
+            "RelayAuthoritySigner": "EthereumAddress",
             "RelayAuthorityMessage": "EcdsaMessage",
             "RelayAuthoritySignature": "EcdsaSignature",
             "Term": "BlockNumber",
@@ -1371,7 +1391,7 @@
               "amount": "Balance"
             },
             "InProcessOrders": {
-              "orders": "Vec<LaneId, MessageNonce>"
+              "orders": "Vec<(LaneId, MessageNonce)>"
             },
             "MMRProofResult": {
               "mmrSize": "u64",
@@ -1416,12 +1436,12 @@
             "PowerOf": {
               "power": "Power"
             },
-            "AccountInfoWithTripleRefCount": {
-              "nonce": "Index",
-              "consumers": "RefCount",
-              "providers": "RefCount",
-              "sufficients": "RefCount",
-              "data": "AccountData"
+            "LockReasons": {
+              "_enum": {
+                "Fee": null,
+                "Misc": null,
+                "All": null
+              }
             }
           }
         }
