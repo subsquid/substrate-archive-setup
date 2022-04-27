@@ -1,5 +1,31 @@
 # Squid Archive setups
 
+## What is a Squid Archive?
+
+Squid Archive collects the historical on-chain data from a Substrate chain and exposes it via a GraphQL endpoint with powerful filtering and search capabilities over historical blocks, events and transactions. Deployed archives for Polkadot, Kusama and most parachains can be found in [Archive Registry](https://github.com/subsquid/archive-registry/blob/main/archives.json)
+
+
+## How to use an Archive ?
+
+The primary use case of a Squid Archive is to serve data to a [Squid Processor](https://github.com/subsquid/squid/tree/master/substrate-processor)
+
+The urls are not supposed to be accessed with a browser. To explore the endpoint with an interactive and human-friendly console, replace `/graphql` with `/console` in the url. 
+
+For example, for exploring Kusama historical data, open `https://kusama.indexer.gc.subsquid.io/v4/console` and use the pane on right hand side to filter (`where:`) and pick the fields of interest.
+
+For example, the following query will return details on the last 10 transfers:
+
+```gql
+query RecentBalancesTransfers {
+  substrate_event(where: {name: {_eq: "balances.Transfer"}}, limit: 10, order_by: {blockNumber: desc}) {
+    blockNumber
+    blockId
+    data
+  }
+}
+```
+
+
 ## Running Docker Compose
 
 Squid Archive setups for various chains.
@@ -80,17 +106,3 @@ yarn upgrade
 node gen-types.js
 ```
 
-### ⚠️ Caveats for 🍏 M1 Macs
-
-A known issue https://github.com/subsquid/squid/issues/21 prevents M1 Macs from running the console.
-Possible workaround:
-
-1. [Clone subsquid/hydra repo](https://github.com/subsquid/hydra)
-2. checkout v5 branch
-3. build the gateway image with:
-
-```sh
-./scripts/docker-build.sh --target indexer-gateway -t subsquid/hydra-indexer-gateway:5
-```
-
-After that, you can run docker-compose as usual.
