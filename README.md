@@ -9,7 +9,7 @@ It comes with an optional explorer service exposing the historical blocks, event
 
 The FireSquid release brought about significant performance improvements:
 
-- FireSquid archives can concurrently source blocks from multiple endpoints. The syncronization can be as fast as 2000 blocks per second and is bottelenecked only by the database writes. 
+- FireSquid archives can concurrently source blocks from multiple endpoints. The synchronization can be as fast as 2000 blocks per second and is bottlenecked only by the database writes. 
 - FireSquid is around 5x more storage-efficient compared to v5. 
 - FireSquid API supports a more efficient batching interface to be used in combination with squid processors. 
 
