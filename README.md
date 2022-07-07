@@ -10,21 +10,32 @@ There are currently two major Archive releases incompatible with each other: `v5
 
 ## Running in Docker
 
-To run a Squid Archive for a specific chain, navigate to the corresponding folder and run:
+To run a Squid Archive for a specific chain, change the websocket endpoints in `docker-compose.yml` and run
 
 ```sh
 docker-compose up
 ```
 
+The explorer will be up at `http://localhost:4444/graphql` and the data source endpoint (compatible with [Squid Processor](https://github.com/subsquid/squid-template) at port `8888`).
+
 Prometheus metrics are available at `http://localhost:9090/metrics` by default. Inspect `sqd_last_block` for the sync status of the archive. 
+
 
 **Support for EVM logs (Frontier pallete)**
 
 For chains with Frontier EVM pallete (such Shiden/Astart or Moonriver/Moonbeam), add `--evm-support` to `substrate-gateway` image. It will enable additional query interfaces compatible with [EvmLog handlers](https://github.com/subsquid/squid-evm-template) for downstream Squids.
 
+See `docker-compose-evm.yml` for a Moonbase-alpha archive setup.
+
 **Support for WASM (Contracts pallete)**
 
 To support additional indexing capabilities for WASM (`Contracts` pallete) add `--contracts-support` argument to `substrate-gateway`
+
+**Type bundles**
+
+For most chains, `substrate-ingest` will process all historical blocks without any additional setup.  
+
+In some rare cases, to decode old unrecognized (pre-v14 metadata) blocks, add `--types-bundle <json with type definitions>` argument to `substrate-ingest`. Note that the types bundle format is [slightly different](https://github.com/subsquid/squid/tree/master/substrate-metadata/src/old/definitions) than that of `polkadot.js`
 
 
 ## How to use an Archive ?
