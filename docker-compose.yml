@@ -18,7 +18,8 @@ services:
        # polkadot endpoints -- replace with your wss
        "-e", "wss://polkadot-rpc.polkadot.io",
        "-c", "10", # allow up to 20 pending requests for the above endpoint (default is 5)
-
+       # for a local setup use 'host.docker.internal' as a host (instead of localhost or 127.0.0.1
+       # e.g. "-e", "ws://host.docker.internal:9944",
        # add another endpoint to increase archiving speed and reliability.
        "-e", "wss://polkadot-rpc.dwellir.com",
        "-e", "wss://polkadot.api.onfinality.io/public-ws",
