@@ -35,11 +35,11 @@ To support additional indexing capabilities for WASM (`Contracts` pallete) add `
 
 For most chains, `substrate-ingest` will process all historical blocks without additional setup.  
 
-In some rare cases, to decode old unrecognized (pre-v14 metadata) blocks, add `--types-bundle <json with type definitions>` argument to `substrate-ingest`. Note that the types bundle format is [slightly different](https://github.com/subsquid/squid/tree/master/substrate-metadata/src/old/definitions) than that of `polkadot.js`
+In some rare cases, to decode old unrecognized (pre-v14 metadata) blocks, add `--types-bundle <json with type definitions>` argument to `substrate-ingest`. Note that the types bundle format is [slightly different](https://github.com/subsquid/squid-sdk/tree/master/substrate/substrate-metadata/src/old/definitions) than that of `polkadot.js`
 
 ## How to use an Archive?
 
-The Archive gateway (exposed on port `8888` in the sample setups) is intended to be used as a data source for [Squid Processor](https://github.com/subsquid/squid/tree/master/substrate-processor). See also [Squid template](https://github.com/subsquid/squid-template) for a basic end-to-end example.
+The Archive gateway (exposed on port `8888` in the sample setups) is intended to be used as a data source for [Squid Processor](https://github.com/subsquid/squid-sdk/tree/master/substrate/substrate-processor). See also [Squid template](https://github.com/subsquid/squid-template) for a basic end-to-end example.
 
 The explorer API can be immediately used with a GraphQL playground available at `http://localhost:4444/graphql` by default. Use the left pane for ad-hoc queries and exploration. 
 
