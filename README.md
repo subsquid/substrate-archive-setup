@@ -1,5 +1,8 @@
 # Squid Archive setups
 
+> [!CAUTION]
+> V1 Subsquid Archives are deprecated in favor of [Subsquid Network](https://docs.subsquid.io/subsquid-network/).
+
 ## What is an Archive?
 
 Squid Archive collects the historical on-chain data from a Substrate chain and stores it in a normalized form for further processing.
